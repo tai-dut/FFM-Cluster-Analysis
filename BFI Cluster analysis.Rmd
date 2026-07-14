@@ -1,0 +1,409 @@
+---
+title: "Visualising and Confirming Factor Structure of the Five Factor Model of Personality"
+author: "Tai Usdin Du Toit"
+date: "2026-07-05"
+output: html_document
+---
+# maybe bootstrap the clusters to have 95%CIs?
+
+This mini project is a validation of the Big Five Personality test, and serves the purpose of establishing my own ability to visualise and assess factor structures. This project will take a more niche approach using cluster analyses to visually display factor structures based on the closeness of correlation distances of items. Additionally, inter-factor structures will be visualised and outliers and groupings will be assessed.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.height = 5,
+  out.width = "100%"
+)
+set.seed(1)
+library(datawizard)
+library(psych)
+```
+
+# Aims and Objectives
+
+This project aims to visually confirm the factor structure of the Big Five personality test using hierarchical cluster analysis rather than traditional factor-analytic techniques. The analysis examines both the overall factor structure and the sub-structure within each domain. This approach serves two purposes: validating the expected five-factor solution and exploring whether theoretically meaningful sub-clusters emerge within each dimension.
+
+# Methods
+
+The analysis comprised several hierarchical cluster analyses using the stats R package (R Core Team, 2026). All data were first converted into a distance matrix using correlation-based dissimilarity (1 − Pearson's r), and hierarchical clustering was conducted with complete linkage. This correlation distance approach permits clustering based on the relationships among items rather than among respondents.
+
+
+# Sampling and Data 
+The data was drawn from the openpsychometrics Big Five personality test (Goldberg, 1992) and a sample of N = 150 was chosen at random have 30 per expected subgroup, an amount found to have sufficient power when cluster separation is large (Dalmaijer et al., 2022). Further as all answers were in the same Likert format no transformations were conducted except inverting reverse scored items before the correlation matrix was created. 
+
+# Results
+
+Descriptive statistics are as follows:
+
+#### Table 1
+**Descriptives**
+
+
+```{r}
+big5.full <- read.delim("big5data.csv", header = T)
+OCEAN.only.pre <- big5.full[,8:57]
+n.rows.to.keep <- sample(1:nrow(OCEAN.only.pre), size = 150, replace = F)
+OCEAN.only.pre2 <- OCEAN.only.pre[n.rows.to.keep, ]
+OCEAN.only <- datawizard::reverse(OCEAN.only.pre2, select = c("E2", "E4", "E6", "E8", "E10", "N2", "N4", "A1", "A3", "A5", "A7", "C2", "C4", "C6", "C8", "O2", "O4", "O6"))
+OCEAN.only.cor <- cor(OCEAN.only, method = "pearson")
+OCEAN.only.cor.mat <- as.dist(1 - OCEAN.only.cor)
+describe(OCEAN.only)
+
+ext.only <- OCEAN.only[,1:10]
+neu.only <- OCEAN.only[,11:20]
+agg.only <- OCEAN.only[,21:30]
+con.only <- OCEAN.only[,31:40]
+ope.only <- OCEAN.only[,41:50]
+```
+
+
+## Hierarchical Clustering Graphs
+The cluster dendrogram for the FFM revealed a clear five-factor structure, with each cluster containing items exclusively from its corresponding dimension, confirming the expected factor solution.
+
+#### **Figure 1**
+*CLuster Dendogram for FFM*
+
+
+```{r}
+hcl.ocean <- hclust(OCEAN.only.cor.mat)
+```
+
+```{r}
+par(mar = c(3,2,2,0))
+plot(hcl.ocean)
+#plot(hcl.ocean.nonscaled, labels = F)
+abline(h = 1, col = "red")
+
+```
+*Note*. The red line visually indicates the cut off at 5 clusters.
+
+The dendogram cut off at 5 clusters and produced the following item bins:
+
+#### **Table 2**
+*Global Cluster Cut-off at 5*
+
+```{r}
+global_clusters <- cutree(hcl.ocean, k = 5)
+global_groups <- split(names(global_clusters), global_clusters)
+print(global_groups)
+```
+
+
+## Inter-factor Clusters
+
+To assess if there are inter-factor differences in items each set of items was separated and inspected visually for groupings.
+
+### Extroversion
+The descriptive statistics for the extroversion items only are displayed below:
+
+#### **Table 3**
+*Descriptives for Extroversion Only*
+
+```{r}
+describe(ext.only)
+
+ext.cor.mat <- cor(ext.only, method = "pearson")
+ext.only.dist <- as.dist(1 - ext.cor.mat)
+
+```
+
+
+The dendrogram for Extroversion revealed three broad clusters. Notably, E8 ("I don't like to draw attention to myself") and E9 ("I don't mind being the center of attention") grouped late into the factor, suggesting they are somewhat distinct from other Extroversion items. This may reflect cultural norms around attention-seeking, where items tapping this aspect may be perceived differently, or answered more variably, than items tapping sociability or talkativeness. For example, items around attention may be perceived as negative, such as the attention seeker being someone who is looked down upon. 
+
+#### **Figure 2**
+*Cluster Dendogram for Extroversion*
+
+```{r}
+par(mar = c(3,2,2,0))
+hcl.ext <- hclust(ext.only.dist)
+plot(hcl.ext)
+
+```
+
+When cut at four clusters, the Extroversion items grouped into four interpretable sub-domains.
+
+The first cluster comprised E1 ("I am the life of the party"), E3 ("I feel comfortable around people"), and E7 ("I talk to a lot of different people at parties"), reflecting social engagement and comfort in group settings. The second cluster contained the negatively worded items E2 ("I don't talk a lot"), E4 ("I keep in the background"), and E6 ("I have little to say"), which collectively tap social withdrawal and low verbal output. The third cluster grouped E5 ("I start conversations") with E10 ("I am quiet around strangers"), suggesting a sub-domain related to behaviour specifically in unfamiliar social contexts. Finally, the fourth cluster comprised E8 ("I don't like to draw attention to myself") and E9 ("I don't mind being the center of attention"), capturing attention-seeking versus attention-avoidance tendencies. 
+
+Other than E4 ("I keep in the background") not grouping with E10 ("I am quiet around strangers") despite their conceptual similarity, the Extroversion factor divided cleanly into four sub-domains that broadly map onto aspects of sociability, assertiveness, and activity level.
+
+#### **Table 4**
+*Cluster Cut-off for Extroversion*
+
+```{r}
+ext_clusters <- cutree(hcl.ext, k = 4)
+ext_groups <- split(names(ext_clusters), ext_clusters)
+print(ext_groups)
+
+```
+
+### Neuroticism
+
+#### **Table 5 **
+*Descriptives for Neuroticism Only*
+
+```{r}
+describe(neu.only)
+```
+
+Neuroticism does not cleanly break into clusters like Extroversion but rather has an item (N4) that  breaks effectively into 2 clusters. Cluster 1 contains N1 ("I get stressed out easily"), N2 ("I am relaxed most of the time"), N3 ("I worry about things"), and N4 ("N4	I seldom feel blue"). Items 1 to 3 in neuroticism directly relate to stress levels and worry. the inclusion of N4 will be discussed.
+
+Cluster 2 contains N5 ("I am easily disturbed"), N6 ("I get upset easily"), N7 ("I change my mood a lot"), N8 ("I have frequent mood swings"), N9 ("I get irritated easily"), and N10 ("I often feel blue"). This cluster can be described as having two major themes. External effect on self and mood.
+
+#### **Figure 3**
+*Cluster Dendogram for Neuroticism*
+
+```{r}
+
+
+par(mar = c(3,2,2,0))
+neu.cor.mat <- cor(neu.only, method = "pearson")
+neu.only.dist <- as.dist(1 - neu.cor.mat)
+hcl.neu <- hclust(neu.only.dist)
+plot(hcl.neu)
+```
+
+#### **Table 6**
+*Cluster Cut-off for Neuroticism: 2 Clusters*
+
+```{r}
+neu_clusters <- cutree(hcl.neu, k = 2)
+neu_groups <- split(names(neu_clusters), neu_clusters)
+print(neu_groups)
+```
+
+Note that splitting the clusters into 3 only removes N4. N4 also relates in item wording most to N10, both refering to feeling blue. The issue with connectedness may be due to the use of the word "seldom" in N4, which has generally fallen out of the modern English vernacular. It may be that this item is not fully understood by participants and therefore, it is answered in a more varied manner. 
+
+
+#### **Table 7**
+*Cluster Cut-off for Neuroticism: 3 Clusters*
+
+```{r}
+neu_clusters <- cutree(hcl.neu, k = 3)
+neu_groups <- split(names(neu_clusters), neu_clusters)
+print(neu_groups)
+```
+
+Further, N4 doesn't merge with N10 until the last step which suggests they have a large distance between them. Given they are functionally the same question but negatively worded, the discrepancy is likely due to misunderstanding of what is being asked.
+
+### Agreeableness
+
+#### **Table 8**
+*Descriptives for Agreeableness Only*
+
+```{r}
+describe(agg.only)
+```
+
+#### **Figure 4**
+*Cluster Dendogram for Agreeableness*
+
+```{r}
+par(mar = c(3,2,2,0))
+agg.cor.mat <- cor(agg.only, method = "pearson")
+agg.only.dist <- as.dist(1 - agg.cor.mat)
+hcl.agg <- hclust(agg.only.dist)
+plot(hcl.agg)
+```
+
+#### **Table 9**
+*Cluster Cut-off for Agreeableness*
+
+```{r}
+agg_clusters <- cutree(hcl.agg, k = 3)
+agg_groups <- split(names(agg_clusters), agg_clusters)
+print(agg_groups)
+```
+
+
+### Conscientiousness
+
+#### **Table 10**
+*Descriptives for Conscientiousness Only*
+
+```{r}
+describe(con.only)
+
+```
+
+#### **Figure 5**
+*Cluster Dendogram for Conscientiousness*
+
+```{r}
+
+
+par(mar = c(3,2,2,0))
+con.cor.mat <- cor(con.only, method = "pearson")
+con.only.dist <- as.dist(1 - con.cor.mat)
+hcl.con <- hclust(con.only.dist)
+plot(hcl.con)
+```
+
+#### **Table 11**
+*Cluster Cut-off for Conscientiousness*
+
+```{r}
+con_clusters <- cutree(hcl.con, k = 4)
+con_groups <- split(names(con_clusters), con_clusters)
+print(con_groups)
+```
+
+
+### Openness to Experience
+
+#### **Table 12 **
+*Descriptives for Openness to Experience Only*
+
+```{r}
+
+describe(ope.only)
+
+```
+
+#### **Figure 6**
+*Cluster Dendogram for Openness to Experience*
+
+```{r}
+
+par(mar = c(3,2,2,0))
+ope.cor.mat <- cor(ope.only, method = "pearson")
+ope.only.dist <- as.dist(1 - ope.cor.mat)
+hcl.ope <- hclust(ope.only.dist)
+plot(hcl.ope)
+```
+
+#### **Table 13**
+*Cluster Cut-off for Openness to Experience*
+
+```{r}
+ope_clusters <- cutree(hcl.ope, k = 4)
+ope_groups <- split(names(ope_clusters), ope_clusters)
+print(ope_groups)
+```
+O7	I am quick to understand things.
+
+# Discussion
+
+# References
+
+Dalmaijer, E. S., Nord, C. L., & Astle, D. E. (2022). Statistical power for cluster analysis. BMC Bioinformatics, 23(1), 205. https://doi.org/10.1186/s12859-022-04675-1
+
+Goldberg, L. R. (1992). The development of markers for the Big-Five factor structure. Psychological Assessment, 4(1), 26–42. https://doi.org/10.1037/1040-3590.4.1.26
+
+
+# Appendix 
+
+## FFM Questions
+
+### Extroversion
+
+E1	I am the life of the party.
+
+E2	I don't talk a lot.
+
+E3	I feel comfortable around people.
+
+E4	I keep in the background.
+
+E5	I start conversations.
+
+E6	I have little to say.
+
+E7	I talk to a lot of different people at parties.
+
+E8	I don't like to draw attention to myself.
+
+E9	I don't mind being the center of attention.
+
+E10	I am quiet around strangers.
+
+### Neuroticism
+
+N1	I get stressed out easily.
+
+N2	I am relaxed most of the time.
+
+N3	I worry about things.
+
+N4	I seldom feel blue.
+
+N5	I am easily disturbed.
+
+N6	I get upset easily.
+
+N7	I change my mood a lot.
+
+N8	I have frequent mood swings.
+
+N9	I get irritated easily.
+
+N10	I often feel blue.
+
+### Agreeableness
+
+A1	I feel little concern for others.
+
+A2	I am interested in people.
+
+A3	I insult people.
+
+A4	I sympathize with others' feelings.
+
+A5	I am not interested in other people's problems.
+
+A6	I have a soft heart.
+
+
+A7	I am not really interested in others.
+
+A8	I take time out for others.
+
+A9	I feel others' emotions.
+
+A10	I make people feel at ease.
+
+### Conscientiousness
+
+C1	I am always prepared.
+
+C2	I leave my belongings around.
+
+C3	I pay attention to details.
+
+C4	I make a mess of things.
+
+C5	I get chores done right away.
+
+C6	I often forget to put things back in their proper place.
+
+C7	I like order.
+
+C8	I shirk my duties.
+
+C9	I follow a schedule.
+
+C10	I am exacting in my work.
+
+### Openness to Experience
+
+O1	I have a rich vocabulary.
+
+O2	I have difficulty understanding abstract ideas.
+
+O3	I have a vivid imagination.
+
+O4	I am not interested in abstract ideas.
+
+O5	I have excellent ideas.
+
+O6	I do not have a good imagination.
+
+O7	I am quick to understand things.
+
+O8	I use difficult words.
+
+O9	I spend time reflecting on things.
+
+O10	I am full of ideas.
+
+From Goldberg, L. R. (1992). The development of markers for the Big-Five factor structure. Psychological Assessment, 4(1), 26–42. https://doi.org/10.1037/1040-3590.4.1.26
