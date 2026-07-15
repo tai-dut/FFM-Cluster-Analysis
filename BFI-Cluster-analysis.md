@@ -1,3 +1,5 @@
+# maybe bootstrap the clusters to have 95%CIs?
+
 This mini project is a validation of the Big Five Personality test, and
 serves the purpose of establishing my own ability to visualise and
 assess factor structures. This project will take a more niche approach
@@ -105,7 +107,7 @@ corresponding dimension, confirming the expected factor solution.
 
 *CLuster Dendogram for FFM*
 
-<img src="README_files/figure-markdown_strict/unnamed-chunk-3-1.png" alt="" width="100%" />
+<img src="BFI-Cluster-analysis_files/figure-markdown_strict/unnamed-chunk-3-1.png" alt="" width="100%" />
 
     ## NULL
 
@@ -173,7 +175,7 @@ seeker being someone who is looked down upon.
 
 *Cluster Dendogram for Extroversion*
 
-<img src="README_files/figure-markdown_strict/unnamed-chunk-6-1.png" alt="" width="100%" />
+<img src="BFI-Cluster-analysis_files/figure-markdown_strict/unnamed-chunk-6-1.png" alt="" width="100%" />
 
 When cut at four clusters, the Extroversion items grouped into four
 interpretable sub-domains.
@@ -247,7 +249,7 @@ effect on self and mood.
 
 *Cluster Dendogram for Neuroticism*
 
-<img src="README_files/figure-markdown_strict/unnamed-chunk-9-1.png" alt="" width="100%" />
+<img src="BFI-Cluster-analysis_files/figure-markdown_strict/unnamed-chunk-9-1.png" alt="" width="100%" />
 
 #### **Table 6**
 
@@ -306,7 +308,7 @@ misunderstanding of what is being asked.
 
 *Cluster Dendogram for Agreeableness*
 
-<img src="README_files/figure-markdown_strict/unnamed-chunk-13-1.png" alt="" width="100%" />
+<img src="BFI-Cluster-analysis_files/figure-markdown_strict/unnamed-chunk-13-1.png" alt="" width="100%" />
 Agreeableness splits into three distinct clusters with A1 (“I feel
 little concern for others”) and A3 (“I insult people”) being
 particularly far from other items. These items are phrased quite
@@ -364,7 +366,7 @@ others’ emotions.
 
 *Cluster Dendogram for Conscientiousness*
 
-<img src="README_files/figure-markdown_strict/unnamed-chunk-16-1.png" alt="" width="100%" />
+<img src="BFI-Cluster-analysis_files/figure-markdown_strict/unnamed-chunk-16-1.png" alt="" width="100%" />
 
 #### **Table 11**
 
@@ -404,7 +406,7 @@ others’ emotions.
 
 *Cluster Dendogram for Openness to Experience*
 
-<img src="README_files/figure-markdown_strict/unnamed-chunk-19-1.png" alt="" width="100%" />
+<img src="BFI-Cluster-analysis_files/figure-markdown_strict/unnamed-chunk-19-1.png" alt="" width="100%" />
 
 #### **Table 13**
 
@@ -425,8 +427,6 @@ others’ emotions.
 O7 I am quick to understand things.
 
 # Discussion
-
-# Limitations and Future Improvements
 
 # References
 

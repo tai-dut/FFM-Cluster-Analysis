@@ -2,9 +2,8 @@
 title: "Visualising and Confirming Factor Structure of the Five Factor Model of Personality"
 author: "Tai Usdin Du Toit"
 date: "2026-07-05"
-output: html_document
+output: md_document
 ---
-# maybe bootstrap the clusters to have 95%CIs?
 
 This mini project is a validation of the Big Five Personality test, and serves the purpose of establishing my own ability to visualise and assess factor structures. This project will take a more niche approach using cluster analyses to visually display factor structures based on the closeness of correlation distances of items. Additionally, inter-factor structures will be visualised and outliers and groupings will be assessed.
 
@@ -18,6 +17,8 @@ knitr::opts_chunk$set(
 set.seed(1)
 library(datawizard)
 library(psych)
+library(gt)
+library(ggplot2)
 ```
 
 # Aims and Objectives
@@ -70,10 +71,12 @@ hcl.ocean <- hclust(OCEAN.only.cor.mat)
 ```
 
 ```{r}
+
 par(mar = c(3,2,2,0))
-plot(hcl.ocean)
-#plot(hcl.ocean.nonscaled, labels = F)
+p1 <- plot(hcl.ocean)
 abline(h = 1, col = "red")
+p1
+
 
 ```
 *Note*. The red line visually indicates the cut off at 5 clusters.
@@ -205,6 +208,9 @@ agg.only.dist <- as.dist(1 - agg.cor.mat)
 hcl.agg <- hclust(agg.only.dist)
 plot(hcl.agg)
 ```
+Agreeableness splits into three distinct clusters with A1 ("I feel little concern for others") and A3 ("I insult people") being particularly far from other items. These items are phrased quite negatively, in that insulting and showing little empathy towards others is often seen as a taboo. Compared to the second cluster containing; A2 ("I am interested in people"), A4	("I sympathize with others' feelings."), A5	("I am not interested in other people's problems"), A6	("I have a soft heart"), A7	("I am not really interested in others"), A8	("I take time out for others"), and A9	("I feel others' emotions") and the third cluster containing; A8 ("I take time out for others") and A10 ("I make people feel at ease") the effect of a social desirability bias may be of greater impact due to strong words such as "little concern" and "insult. However, all the items used for agreeableness may induce some level of social desirability bias given the social nature and implications of being a "bad" person.
+
+Additionally, cluster two mainly regards interest in others with A6 being a potential outlier contextually. Considering it most closely connects with A4 and A9 which both concern the emotions of others, a soft heart may resonate most with those who tend to feel and care about others' emotions.
 
 #### **Table 9**
 *Cluster Cut-off for Agreeableness*
@@ -284,6 +290,8 @@ O7	I am quick to understand things.
 
 # Discussion
 
+# Limitations and Future Improvements
+
 # References
 
 Dalmaijer, E. S., Nord, C. L., & Astle, D. E. (2022). Statistical power for cluster analysis. BMC Bioinformatics, 23(1), 205. https://doi.org/10.1186/s12859-022-04675-1
@@ -352,7 +360,6 @@ A4	I sympathize with others' feelings.
 A5	I am not interested in other people's problems.
 
 A6	I have a soft heart.
-
 
 A7	I am not really interested in others.
 
