@@ -1,3 +1,7 @@
+    knitr::include_graphics("global plot.png")
+
+<img src="global plot.png" alt="" width="3000" />
+
 This mini project is a validation of the Big Five Personality test, and
 serves the purpose of establishing my own ability to visualise and
 assess factor structures. This project will take a more niche approach
@@ -105,7 +109,7 @@ corresponding dimension, confirming the expected factor solution.
 
 *CLuster Dendogram for FFM*
 
-<img src="README_files/figure-markdown_strict/unnamed-chunk-3-1.png" alt="" width="100%" />
+<img src="README_files/figure-markdown_strict/unnamed-chunk-4-1.png" alt="" width="100%" />
 
     ## NULL
 
@@ -170,7 +174,7 @@ seeker being someone who is looked down upon.
 
 *Cluster Dendogram for Extroversion*
 
-<img src="README_files/figure-markdown_strict/unnamed-chunk-6-1.png" alt="" width="100%" />
+<img src="README_files/figure-markdown_strict/unnamed-chunk-7-1.png" alt="" width="100%" />
 
 When cut at four clusters, the Extroversion items grouped into four
 interpretable sub-domains.
@@ -252,7 +256,7 @@ al, 2007).
 
 *Cluster Dendogram for Neuroticism*
 
-<img src="README_files/figure-markdown_strict/unnamed-chunk-9-1.png" alt="" width="100%" />
+<img src="README_files/figure-markdown_strict/unnamed-chunk-10-1.png" alt="" width="100%" />
 
 #### **Table 6**
 
@@ -332,7 +336,7 @@ being a”bad” person.
 
 *Cluster Dendogram for Agreeableness*
 
-<img src="README_files/figure-markdown_strict/unnamed-chunk-13-1.png" alt="" width="100%" />
+<img src="README_files/figure-markdown_strict/unnamed-chunk-14-1.png" alt="" width="100%" />
 
 Additionally, cluster two mainly regards interest in others with A6
 being a potential outlier contextually. Considering it most closely
@@ -375,6 +379,12 @@ al., 2007).
 The Conscientiousness construct breaks evenly across two main clusters
 consistent with DeYoung et al.’s (2007) Industriousness and Orderliness.
 
+#### **Figure 5**
+
+*Cluster Dendogram for Conscientiousness*
+
+<img src="README_files/figure-markdown_strict/unnamed-chunk-17-1.png" alt="" width="100%" />
+
 Cluster one contains C1 (“I am always prepared”), C3 (“I pay attention
 to details”), C7 (“I like order”), C8 (“I shirk my duties”), and C10 (“I
 am exacting in my work”); this represents strongly the industrious
@@ -385,12 +395,6 @@ mess of things”), C5 (“I get chores done right away”), C6 (“I often
 forget to put things back in their proper place”), and C9 (“I follow a
 schedule”); This strongly shows Orderliness by way of structured
 behaviour in everyday life.
-
-#### **Figure 5**
-
-*Cluster Dendogram for Conscientiousness*
-
-<img src="README_files/figure-markdown_strict/unnamed-chunk-16-1.png" alt="" width="100%" />
 
 #### **Table 11**
 
@@ -430,7 +434,7 @@ behaviour in everyday life.
 
 *Cluster Dendogram for Openness to Experience*
 
-<img src="README_files/figure-markdown_strict/unnamed-chunk-19-1.png" alt="" width="100%" />
+<img src="README_files/figure-markdown_strict/unnamed-chunk-20-1.png" alt="" width="100%" />
 
 #### **Table 13**
 

@@ -4,6 +4,10 @@ author: "Tai Usdin Du Toit"
 date: "2026-07-05"
 output: md_document
 ---
+```{r}
+
+knitr::include_graphics("global plot.png")
+```
 
 This mini project is a validation of the Big Five Personality test, and serves the purpose of establishing my own ability to visualise and assess factor structures. This project will take a more niche approach using cluster analyses to visually display factor structures based on the closeness of correlation distances of items. Additionally, inter-factor structures will be visualised and outliers and groupings will be assessed.
 
@@ -239,10 +243,6 @@ describe(con.only)
 
 The Conscientiousness construct breaks evenly across two main clusters consistent with DeYoung et al.'s (2007) Industriousness and Orderliness. 
 
-Cluster one contains C1 ("I am always prepared"), C3 ("I pay attention to details"), C7 ("I like order"), C8 ("I shirk my duties"), and C10 ("I am exacting in my work"); this represents strongly the industrious sub-factor through detail orientations and self-identified work quality.
-
-Cluster two contains C2 ("I leave my belongings around"), C4 ("I make a mess of things"), C5 ("I get chores done right away"), C6 ("I often forget to put things back in their proper place"), and C9 ("I follow a schedule"); This strongly shows Orderliness by way of structured behaviour in everyday life.
-
 
 #### **Figure 5**
 *Cluster Dendogram for Conscientiousness*
@@ -256,6 +256,10 @@ con.only.dist <- as.dist(1 - con.cor.mat)
 hcl.con <- hclust(con.only.dist)
 plot(hcl.con)
 ```
+
+Cluster one contains C1 ("I am always prepared"), C3 ("I pay attention to details"), C7 ("I like order"), C8 ("I shirk my duties"), and C10 ("I am exacting in my work"); this represents strongly the industrious sub-factor through detail orientations and self-identified work quality.
+
+Cluster two contains C2 ("I leave my belongings around"), C4 ("I make a mess of things"), C5 ("I get chores done right away"), C6 ("I often forget to put things back in their proper place"), and C9 ("I follow a schedule"); This strongly shows Orderliness by way of structured behaviour in everyday life.
 
 #### **Table 11**
 *Cluster Cut-off for Conscientiousness*
