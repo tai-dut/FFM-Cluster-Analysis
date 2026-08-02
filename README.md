@@ -1,3 +1,5 @@
+# Visualising and Confirming Factor Structure of the Five Factor Model of Personality
+
 <img src="global plot.png" alt="" width="3000" />
 
 This mini project is a validation of the Big Five Personality test, and

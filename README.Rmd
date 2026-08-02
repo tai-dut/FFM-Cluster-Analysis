@@ -4,6 +4,8 @@ author: "Tai Usdin Du Toit"
 date: "2026-07-05"
 output: md_document
 ---
+# Visualising and Confirming Factor Structure of the Five Factor Model of Personality
+
 ```{r, echo=FALSE}
 
 knitr::include_graphics("global plot.png")
