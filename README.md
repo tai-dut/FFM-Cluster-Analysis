@@ -1,5 +1,3 @@
-    knitr::include_graphics("global plot.png")
-
 <img src="global plot.png" alt="" width="3000" />
 
 This mini project is a validation of the Big Five Personality test, and

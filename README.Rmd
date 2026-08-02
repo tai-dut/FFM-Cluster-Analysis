@@ -4,7 +4,7 @@ author: "Tai Usdin Du Toit"
 date: "2026-07-05"
 output: md_document
 ---
-```{r}
+```{r, echo=FALSE}
 
 knitr::include_graphics("global plot.png")
 ```
