@@ -140,9 +140,6 @@ items was separated and inspected visually for groupings.
 
 ### Extroversion
 
-The descriptive statistics for the extroversion items only are displayed
-below:
-
 #### **Table 3**
 
 *Descriptives for Extroversion Only*
@@ -184,17 +181,21 @@ people at parties”), reflecting social engagement and comfort in group
 settings. The second cluster contained the negatively worded items E2
 (“I don’t talk a lot”), E4 (“I keep in the background”), and E6 (“I have
 little to say”), which collectively tap social withdrawal and low verbal
-output. The third cluster grouped E5 (“I start conversations”) with E10
-(“I am quiet around strangers”), suggesting a sub-domain related to
-behaviour specifically in unfamiliar social contexts. Finally, the
-fourth cluster comprised E8 (“I don’t like to draw attention to myself”)
-and E9 (“I don’t mind being the center of attention”), capturing
-attention-seeking versus attention-avoidance tendencies.
+output.
+
+The third cluster grouped E5 (“I start conversations”) with E10 (“I am
+quiet around strangers”), suggesting a sub-domain related to behaviour
+specifically in unfamiliar social contexts. Finally, the fourth cluster
+comprised E8 (“I don’t like to draw attention to myself”) and E9 (“I
+don’t mind being the center of attention”), capturing attention-seeking
+versus attention-avoidance tendencies.
 
 Other than E4 (“I keep in the background”) not grouping with E10 (“I am
 quiet around strangers”) despite their conceptual similarity, the
 Extroversion factor divided cleanly into four sub-domains that broadly
-map onto aspects of sociability, assertiveness, and activity level.
+map onto aspects of sociability, assertiveness, and activity level which
+loosely connect to the facets of Enthusiasm and Assertiveness proposed
+by DeYoung et al., (2007).
 
 #### **Table 4**
 
@@ -230,18 +231,22 @@ map onto aspects of sociability, assertiveness, and activity level.
     ## N9     9 150 2.99 1.28      3    2.98 1.48   1   5     4 -0.03    -1.14 0.10
     ## N10   10 150 2.79 1.36      3    2.73 1.48   1   5     4  0.18    -1.24 0.11
 
-Neuroticism does not cleanly break into clusters like Extroversion but
-rather has an item (N4) that breaks effectively into 2 clusters. Cluster
-1 contains N1 (“I get stressed out easily”), N2 (“I am relaxed most of
-the time”), N3 (“I worry about things”), and N4 (“N4 I seldom feel
-blue”). Items 1 to 3 in neuroticism directly relate to stress levels and
-worry. the inclusion of N4 will be discussed.
+Neuroticism does not cleanly break into more than two clusters like
+Extroversion but rather has an item (N4) that prevents the construct
+from breaking effectively into 2 clusters. therefore a two facet
+approach, ignoring N4, is used. Cluster 1 contains N1 (“I get stressed
+out easily”), N2 (“I am relaxed most of the time”), N3 (“I worry about
+things”), and N4 (“N4 I seldom feel blue”). Items 1 to 3 in neuroticism
+directly relate to stress levels and worry. This is consistent with
+Withdrawal (DeYoung et al., 2007). The inclusion of N4 will be
+discussed.
 
 Cluster 2 contains N5 (“I am easily disturbed”), N6 (“I get upset
 easily”), N7 (“I change my mood a lot”), N8 (“I have frequent mood
 swings”), N9 (“I get irritated easily”), and N10 (“I often feel blue”).
 This cluster can be described as having two major themes. External
-effect on self and mood.
+effect on self and mood and relates strongly to Volatility (DeYoung et
+al, 2007).
 
 #### **Figure 3**
 
@@ -302,32 +307,39 @@ misunderstanding of what is being asked.
     ## A9     9 150 3.98 1.08      4    4.15 1.48   1   5     4 -1.11     0.62 0.09
     ## A10   10 150 3.61 1.13      4    3.68 1.48   1   5     4 -0.39    -0.81 0.09
 
+Agreeableness splits into three distinct clusters with A1 (“I feel
+little concern for others”) and A3 (“I insult people”) being
+particularly far from other items. These items are phrased quite
+negatively, in that insulting and showing little empathy towards others
+is often seen as a taboo. Further the distance between themes as written
+in the items are not easily distinguishable and suggest that although
+there may be two facets of agreeableness (DeYoung et al., 2007) they are
+not represented in this sample.
+
+Compared to the second cluster containing; A2 (“I am interested in
+people”), A4 (“I sympathize with others’ feelings.”), A5 (“I am not
+interested in other people’s problems”), A6 (“I have a soft heart”), A7
+(“I am not really interested in others”), A8 (“I take time out for
+others”), and A9 (“I feel others’ emotions”) and the third cluster
+containing; A8 (“I take time out for others”) and A10 (“I make people
+feel at ease”) the effect of a social desirability bias may be of
+greater impact due to strong words such as “little concern” and “insult.
+However, all the items used for agreeableness may induce some level of
+social desirability bias given the social nature and implications of
+being a”bad” person.
+
 #### **Figure 4**
 
 *Cluster Dendogram for Agreeableness*
 
 <img src="README_files/figure-markdown_strict/unnamed-chunk-13-1.png" alt="" width="100%" />
-Agreeableness splits into three distinct clusters with A1 (“I feel
-little concern for others”) and A3 (“I insult people”) being
-particularly far from other items. These items are phrased quite
-negatively, in that insulting and showing little empathy towards others
-is often seen as a taboo. Compared to the second cluster containing; A2
-(“I am interested in people”), A4 (“I sympathize with others’
-feelings.”), A5 (“I am not interested in other people’s problems”), A6
-(“I have a soft heart”), A7 (“I am not really interested in others”), A8
-(“I take time out for others”), and A9 (“I feel others’ emotions”) and
-the third cluster containing; A8 (“I take time out for others”) and A10
-(“I make people feel at ease”) the effect of a social desirability bias
-may be of greater impact due to strong words such as “little concern”
-and “insult. However, all the items used for agreeableness may induce
-some level of social desirability bias given the social nature and
-implications of being a”bad” person.
 
 Additionally, cluster two mainly regards interest in others with A6
 being a potential outlier contextually. Considering it most closely
 connects with A4 and A9 which both concern the emotions of others, a
 soft heart may resonate most with those who tend to feel and care about
-others’ emotions.
+others’ emotions, consistent with Compassion over Politeness (DeYoung et
+al., 2007).
 
 #### **Table 9**
 
@@ -359,6 +371,20 @@ others’ emotions.
     ## C8     8 150 3.57 1.22      4    3.67 1.48   1   5     4 -0.40    -0.78 0.10
     ## C9     9 150 3.30 1.26      4    3.38 1.48   1   5     4 -0.33    -0.98 0.10
     ## C10   10 150 3.84 1.02      4    3.94 1.48   1   5     4 -0.71     0.16 0.08
+
+The Conscientiousness construct breaks evenly across two main clusters
+consistent with DeYoung et al.’s (2007) Industriousness and Orderliness.
+
+Cluster one contains C1 (“I am always prepared”), C3 (“I pay attention
+to details”), C7 (“I like order”), C8 (“I shirk my duties”), and C10 (“I
+am exacting in my work”); this represents strongly the industrious
+sub-factor through detail orientations and self-identified work quality.
+
+Cluster two contains C2 (“I leave my belongings around”), C4 (“I make a
+mess of things”), C5 (“I get chores done right away”), C6 (“I often
+forget to put things back in their proper place”), and C9 (“I follow a
+schedule”); This strongly shows Orderliness by way of structured
+behaviour in everyday life.
 
 #### **Figure 5**
 
@@ -433,6 +459,11 @@ O7 I am quick to understand things.
 Dalmaijer, E. S., Nord, C. L., & Astle, D. E. (2022). Statistical power
 for cluster analysis. BMC Bioinformatics, 23(1), 205.
 <https://doi.org/10.1186/s12859-022-04675-1>
+
+DeYoung, C. G., Quilty, L. C., & Peterson, J. B. (2007). Between facets
+and domains: 10 aspects of the Big Five. Journal of Personality and
+Social Psychology, 93(5), 880–896. (2007-15390-012).
+<https://doi.org/10.1037/0022-3514.93.5.880>
 
 Goldberg, L. R. (1992). The development of markers for the Big-Five
 factor structure. Psychological Assessment, 4(1), 26–42.
